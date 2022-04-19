@@ -13,6 +13,7 @@ async def task_wait_n(n: int, max_delay: int) -> List[asyncio.Task]:
     that returns time for running async
     operations.
     """
+
     final_list: List[asyncio.Task] = await asyncio.gather(
         *[task_wait_random(max_delay) for _ in range(n)])
     return sorted(final_list)
